@@ -1,0 +1,55 @@
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname ISP-Router
+
+ISP-Router(config)#int s0/0/0
+ISP-Router(config-if)#ip address 200.10.1.2 255.255.255.252
+ISP-Router(config-if)#no shut
+ISP-Router(config-if)#exit
+ISP-Router(config)#int f0/0
+ISP-Router(config-if)#ip address 100.10.1.1 255.255.255.240
+ISP-Router(config-if)#no shut
+
+
+//vpn配置
+ISP-Router(config)#cr
+ISP-Router(config)#crypto is
+ISP-Router(config)#crypto isakmp po
+ISP-Router(config)#crypto isakmp policy 1
+ISP-Router(config-isakmp)#en
+ISP-Router(config-isakmp)#encryption aes
+ISP-Router(config-isakmp)#hash sha
+ISP-Router(config-isakmp)#group 2
+ISP-Router(config-isakmp)#au
+ISP-Router(config-isakmp)#authentication pr
+ISP-Router(config-isakmp)#authentication pre-share 
+ISP-Router(config-isakmp)#lif
+ISP-Router(config-isakmp)#lifetime 3600
+ISP-Router(config-isakmp)#exit
+ISP-Router(config)#cr
+ISP-Router(config)#crypto is
+ISP-Router(config)#crypto isakmp key ynu address 200.10.1.1
+ISP-Router(config)#ac
+ISP-Router(config)#access-list 100 per
+ISP-Router(config)#access-list 100 permit ip 100.10.1.0 0.0.0.15 172.16.14.0 0.0.0.255
+ISP-Router(config)#cr
+ISP-Router(config)#crypto i
+ISP-Router(config)#crypto ip
+ISP-Router(config)#crypto ipsec tr
+ISP-Router(config)#crypto ipsec transform-set wentran esp-aes esp-sha-hmac
+ISP-Router(config)#cr
+ISP-Router(config)#crypto map wenmap 1 i
+ISP-Router(config)#crypto map wenmap 1 ipsec-isakmp 
+ISP-Router(config-crypto-map)#match address 100
+ISP-Router(config-crypto-map)#set tr
+ISP-Router(config-crypto-map)#set transform-set wentran
+ISP-Router(config-crypto-map)#set peer 200.10.1.1
+ISP-Router(config-crypto-map)#exit
+ISP-Router(config)#int s0/0/0 
+ISP-Router(config-if)#cr
+ISP-Router(config-if)#crypto mao
+ISP-Router(config-if)#crypto map
+ISP-Router(config-if)#crypto map wenmap
+ISP-Router(config-if)#exit
+ISP-Router(config)#ip route 0.0.0.0 0.0.0.0 200.10.1.1

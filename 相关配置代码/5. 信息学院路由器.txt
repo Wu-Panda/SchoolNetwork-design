@@ -1,0 +1,49 @@
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip dhcp pool joysin.net
+Router(dhcp-config)#network 172.16.8.0 255.255.254.0
+Router(dhcp-config)#def
+Router(dhcp-config)#default-router 172.16.8.1
+Router(dhcp-config)#op
+Router(dhcp-config)#option 150 ip 172.16.8.1
+Router(dhcp-config)#exit
+Router(config)#int f0/0
+Router(config-if)#ip address 172.16.8.1 255.255.254.0
+Router(config-if)#du
+Router(config-if)#duplex a
+Router(config-if)#duplex auto 
+Router(config-if)#sp
+Router(config-if)#speed a
+Router(config-if)#speed auto 
+Router(config-if)#exit
+Router(config)#int f0/1
+Router(config-if)#no ip add
+Router(config-if)#du
+Router(config-if)#duplex a
+Router(config-if)#duplex auto 
+Router(config-if)#sp
+Router(config-if)#speed a
+Router(config-if)#speed auto 
+Router(config-if)#shutdown
+Router(config-if)#exit
+Router(config)#int vlan 1
+Router(config-if)#no ip add
+Router(config-if)#shutdown
+Router(config-if)#telephony-service
+Router(config-telephony)#max-ephones 5
+Router(config-telephony)#max-dn 5
+Router(config-telephony)#ip sou
+Router(config-telephony)#ip source-address 172.16.8.1 port 2000
+Router(config-telephony)#au
+Router(config-telephony)#auto assign 1 to 5
+Router(config-telephony)#exit
+Router(config)#ephone-dn 1
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 1.1, changed state to up
+
+Router(config-ephone-dn)#number 106
+Router(config-ephone-dn)#exit
+Router(config)#ephone-dn 2
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 2.1, changed state to up
+
+Router(config-ephone-dn)#number 105
+Router(config-ephone-dn)#exit

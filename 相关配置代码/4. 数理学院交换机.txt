@@ -1,0 +1,54 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname sl
+sl(config)#vlan 10
+sl(config-vlan)#vlan 20
+sl(config-vlan)#vlan 30
+sl(config-vlan)#vlan 40
+sl(config-vlan)#vlan 50
+sl(config-vlan)#vlan 60
+sl(config-vlan)#vlan 70
+sl(config-vlan)#vlan 80
+sl(config-vlan)#vlan 90
+sl(config-vlan)#vlan 100
+sl(config-vlan)#exit
+sl(config)#int f0/1
+sl(config-if)#sw
+sl(config-if)#switchport m
+sl(config-if)#switchport mode a
+sl(config-if)#switchport mode access 
+sl(config-if)#sw
+sl(config-if)#switchport m
+sl(config-if)#switchport mode tr
+
+sl(config-if)#exit
+sl(config)#int range f 0/2-4
+sl(config-if-range)#sw
+sl(config-if-range)#switchport 
+sl(config-if-range)#switchport m
+sl(config-if-range)#switchport mode a
+sl(config-if-range)#switchport mode access 
+sl(config-if-range)#sw
+sl(config-if-range)#switchport ac
+sl(config-if-range)#switchport access vlan 60
+
+//IP地址拨号
+sl(config)#int f0/4
+sl(config-if)#sw
+sl(config-if)#switchport m
+sl(config-if)#switchport mode tr
+sl(config-if)#switchport mode trunk 
+sl(config-if)#sw
+sl(config-if)#switchport v
+sl(config-if)#switchport voice vlan 1
+sl(config-if)#exit
+sl(config)#int f0/6
+sl(config-if)#sw
+sl(config-if)#switchport m
+sl(config-if)#switchport mode tr
+sl(config-if)#switchport mode trunk 
+sl(config-if)#sw
+sl(config-if)#switchport v
+sl(config-if)#switchport voice vlan 1
+sl(config-if)#exit

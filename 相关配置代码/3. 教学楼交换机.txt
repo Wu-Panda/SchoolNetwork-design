@@ -1,0 +1,33 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname jx
+jx(config)#vlan 10
+jx(config-vlan)#vlan 20
+jx(config-vlan)#vlan 30
+jx(config-vlan)#vlan 40
+jx(config-vlan)#vlan 50
+jx(config-vlan)#vlan 60
+jx(config-vlan)#vlan 70
+jx(config-vlan)#vlan 80
+jx(config-vlan)#vlan 90
+jx(config-vlan)#vlan 100
+jx(config-vlan)#exit
+
+jx(config)#int range f 0/1-2
+jx(config-if-range)#sw
+jx(config-if-range)#switchport m
+jx(config-if-range)#switchport mode ac
+jx(config-if-range)#sw
+jx(config-if-range)#switchport mode
+jx(config-if-range)#switchport mode tr
+jx(config-if-range)#switchport mode trunk 
+
+jx(config)#int range f 0/3-4
+jx(config-if-range)#sw
+jx(config-if-range)#switchport m
+jx(config-if-range)#switchport mode acc
+jx(config-if-range)#switchport mode access 
+jx(config-if-range)#sw
+jx(config-if-range)#switchport ac
+jx(config-if-range)#switchport access vlan 20

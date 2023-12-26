@@ -1,0 +1,36 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+Switch(config)#hostname sw1
+sw1(config)#vlan 10
+sw1(config-vlan)#vlan 20
+sw1(config-vlan)#vlan 30
+sw1(config-vlan)#vlan 40
+sw1(config-vlan)#vlan 50
+sw1(config-vlan)#vlan 60
+sw1(config-vlan)#vlan 70
+sw1(config-vlan)#vlan 80
+sw1(config-vlan)#vlan 90
+sw1(config-vlan)#vlan 100
+sw1(config-vlan)#exit
+
+sw1(config)#int range f 0/1-2
+sw1(config-if-range)#sw
+sw1(config-if-range)#switchport m
+sw1(config-if-range)#switchport mode ac
+sw1(config-if-range)#switchport mode access 
+sw1(config-if-range)#sw
+sw1(config-if-range)#switchport mo
+sw1(config-if-range)#switchport mode tr
+sw1(config-if-range)#switchport mode trunk 
+
+sw1(config-if-range)#int range f 0/3-5
+sw1(config-if-range)#sw
+sw1(config-if-range)#switchport m
+sw1(config-if-range)#switchport mode a
+sw1(config-if-range)#switchport mode access 
+sw1(config-if-range)#sw
+sw1(config-if-range)#switchport ac
+sw1(config-if-range)#switchport access vlan 90
+

@@ -1,0 +1,227 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname Core-SW2
+Core-SW2(config)#vlan 10
+Core-SW2(config-vlan)#vlan 20
+Core-SW2(config-vlan)#vlan 30
+Core-SW2(config-vlan)#vlan 40
+Core-SW2(config-vlan)#vlan 50
+Core-SW2(config-vlan)#vlan 60
+Core-SW2(config-vlan)#vlan 70
+Core-SW2(config-vlan)#vlan 80
+Core-SW2(config-vlan)#vlan 90
+Core-SW2(config-vlan)#vlan 100
+Core-SW2(config-vlan)#exit
+
+Core-SW2(config)#int vlan 10
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan10, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan10, changed state to up
+Core-SW2(config-if)#ip address 172.16.12.254 255.255.255.0
+Core-SW2(config-if)#standby 10 ip 172.16.12.252
+Core-SW2(config-if)#standby 10 track f0/1
+Core-SW2(config-if)#standby 10 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 20
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan20, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan20, changed state to up
+
+%HSRP-6-STATECHANGE: Vlan10 Grp 10 state Speak -> Standby
+
+Core-SW2(config-if)#ip address 172.16.15.125 255.255.255.128
+Core-SW2(config-if)#standby 20 ip 172.16.15.124
+Core-SW2(config-if)#standby 20 track f0/1
+Core-SW2(config-if)#standby 20 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 30
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan30, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan30, changed state to up
+Core-SW2(config-if)#ip address 172.16.14.253 255.255.255.0
+Core-SW2(config-if)#standby 30 ip 172.16.14.252
+Core-SW2(config-if)#standby 30 track f0/1
+Core-SW2(config-if)#standby 30 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 40
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan40, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan40, changed state to up
+
+Core-SW2(config-if)#ip address 172.16.9.253 255.255.254.0
+Core-SW2(config-if)#standby 40 ip 172.16.9.252
+Core-SW2(config-if)#standby 40 priority 120
+Core-SW2(config-if)#standby 40 preempt
+Core-SW2(config-if)#standby 40 track f0/1
+Core-SW2(config-if)#standby 40 track f0/2
+Core-SW2(config-if)#exit
+
+Core-SW2(config)#int vlan 50
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan50, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan50, changed state to up
+
+Core-SW2(config-if)#ip address 172.16.10.253 255.255.255.0
+Core-SW2(config-if)#standby 50 ip 172.16.10.252
+Core-SW2(config-if)#standby 50 priority 120
+Core-SW2(config-if)#standby 50 preempt
+Core-SW2(config-if)#standby 50 track f0/1
+Core-SW2(config-if)#standby 50 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 60
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan60, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan60, changed state to up
+
+Core-SW2(config-if)#ip address 172.16.11.253 255.255.255.0
+Core-SW2(config-if)#standby 60 ip 172.16.11.252
+Core-SW2(config-if)#standby 60 priority 120
+Core-SW2(config-if)#standby 60 preempt
+Core-SW2(config-if)#standby 60 track f0/1
+Core-SW2(config-if)#standby 60 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 70
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan70, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan70, changed state to up
+
+Core-SW2(config-if)#ip address 172.16.3.253 255.255.252.0
+Core-SW2(config-if)#standby 70 ip 172.16.3.252
+Core-SW2(config-if)#standby 70 priority 120
+Core-SW2(config-if)#standby 70 preempt
+Core-SW2(config-if)#standby 70 track f0/1
+Core-SW2(config-if)#standby 70 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 80
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan80, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan80, changed state to up
+
+Core-SW2(config-if)#ip address 172.16.7.253 255.255.252.0
+Core-SW2(config-if)#standby 80 ip 172.16.7.252
+Core-SW2(config-if)#standby 80 priority 120
+Core-SW2(config-if)#standby 80 preempt
+Core-SW2(config-if)#standby 80 track f0/1
+Core-SW2(config-if)#standby 80 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 90
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan90, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan90, changed state to up
+
+Core-SW2(config-if)#ip address 172.16.15.253 255.255.255.128
+Core-SW2(config-if)#standby 90 ip 172.16.15.252
+Core-SW2(config-if)#standby 90 track f0/1
+Core-SW2(config-if)#standby 90 track f0/2
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 100
+Core-SW2(config-if)#
+%LINK-5-CHANGED: Interface Vlan100, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan100, changed state to up
+
+Core-SW2(config-if)#ip address 172.16.13.253 255.255.255.224
+Core-SW2(config-if)#standby 100 ip 172.16.13.252
+Core-SW2(config-if)#standby 100 priority 120
+Core-SW2(config-if)#standby 100 preempt
+Core-SW2(config-if)#standby 100 track f0/1
+Core-SW2(config-if)#standby 100 track f0/2
+Core-SW2(config-if)#exit
+
+Core-SW2(config)#int f0/1
+Core-SW2(config-if)#no switchport
+Core-SW2(config-if)#ip address 172.16.13.130 255.255.255.224
+Core-SW2(config-if)#no shutdown
+Core-SW2(config-if)#exit
+Core-SW2(config)#int f0/2
+Core-SW2(config-if)#no switchport
+Core-SW2(config-if)#ip address 172.16.13.194 255.255.255.224
+Core-SW2(config-if)#no shutdown
+Core-SW2(config-if)#exit
+Core-SW2(config)#int port-channel 1
+Core-SW2(config-if)#sw
+Core-SW2(config-if)#switchport tr
+Core-SW2(config-if)#switchport trunk e
+Core-SW2(config-if)#switchport trunk encapsulation d
+Core-SW2(config-if)#switchport trunk encapsulation dot1q 
+Core-SW2(config-if)#sw
+Core-SW2(config-if)#switchport m
+Core-SW2(config-if)#switchport mode tr
+Core-SW2(config-if)#switchport mode trunk 
+Core-SW2(config-if)#exit
+Core-SW2(config)#int range f
+Core-SW2(config)#int range fastEthernet 0/3-4
+Core-SW2(config-if-range)#sw
+Core-SW2(config-if-range)#switchport tr
+Core-SW2(config-if-range)#switchport trunk e
+Core-SW2(config-if-range)#switchport trunk encapsulation d
+Core-SW2(config-if-range)#switchport trunk encapsulation dot1q 
+Core-SW2(config-if-range)#sw
+Core-SW2(config-if-range)#switchport m
+Core-SW2(config-if-range)#switchport mode tr
+Core-SW2(config-if-range)#switchport mode trunk 
+Core-SW2(config-if-range)#channel
+Core-SW2(config-if-range)#channel-group 1 m
+Core-SW2(config-if-range)#channel-group 1 mode on
+
+Core-SW2(config)#ip routing
+Core-SW2(config)#span
+Core-SW2(config)#spanning-tree m
+Core-SW2(config)#spanning-tree mode p
+Core-SW2(config)#spanning-tree mode pvst 
+Core-SW2(config)#span
+Core-SW2(config)#spanning-tree vlan 10,20,30,90 root se
+Core-SW2(config)#spanning-tree vlan 10,20,30,90 root secondary 
+Core-SW2(config)#span
+Core-SW2(config)#spanning-tree vlan 40,50,60,70,80,100 root pr
+Core-SW2(config)#spanning-tree vlan 40,50,60,70,80,100 root primary 
+Core-SW2(config)#int range f 0/5-11
+Core-SW2(config-if-range)#sw
+Core-SW2(config-if-range)#switchport tr
+Core-SW2(config-if-range)#switchport trunk e
+Core-SW2(config-if-range)#switchport trunk encapsulation d
+Core-SW2(config-if-range)#switchport trunk encapsulation dot1q 
+Core-SW2(config-if-range)#sw
+Core-SW2(config-if-range)#switchport m
+Core-SW2(config-if-range)#switchport mode tr
+Core-SW2(config-if-range)#switchport mode trunk 
+
+Core-SW2(config)#int f0/11
+Core-SW2(config-if)#sw
+Core-SW2(config-if)#switchport m
+Core-SW2(config-if)#switchport mode tr
+Core-SW2(config-if)#switchport mode trunk 
+Core-SW2(config-if)#sw
+Core-SW2(config-if)#switchport m
+Core-SW2(config-if)#switchport mode ac
+Core-SW2(config-if)#switchport mode access 
+Core-SW2(config-if)#sw
+Core-SW2(config-if)#switchport ac
+Core-SW2(config-if)#switchport access vlan 100
+Core-SW2(config-if)#exit
+
+//ACL控制
+Core-SW2(config)#ac
+Core-SW2(config)#access-list 100 deny ip 172.16.0.0 0.0.7.255 172.16.12.0 0.0.0.255
+Core-SW2(config)#access-list 100 deny ip 172.16.0.0 0.0.7.255 172.16.15.0 0.0.0.127
+Core-SW2(config)#ac
+Core-SW2(config)#access-list 100 per
+Core-SW2(config)#access-list 100 permit ip any any
+Core-SW2(config)#int vlan 70
+Core-SW2(config-if)#ip ac
+Core-SW2(config-if)#ip access-group 100 in
+Core-SW2(config-if)#exit
+Core-SW2(config)#int vlan 80
+Core-SW2(config-if)#ip ac
+Core-SW2(config-if)#ip access-group 100 in
+Core-SW2(config-if)#exit

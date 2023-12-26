@@ -1,0 +1,55 @@
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname Core-Router
+
+Core-Router(config)#int f0/0
+Core-Router(config-if)#ip address 172.16.13.1 255.255.255.224
+Core-Router(config-if)#no shutdown
+Core-Router(config-if)#exit
+Core-Router(config)#int f0/1
+Core-Router(config-if)#ip address 172.16.13.33 255.255.255.224
+Core-Router(config-if)#no shutdown
+Core-Router(config-if)#exit
+Core-Router(config)#int s0/0/0
+Core-Router(config-if)#ip address 200.10.1.1 255.255.255.224
+Core-Router(config-if)#clock rate 64000
+Core-Router(config-if)#no shutdown
+Core-Router(config-if)#exit
+
+Core-Router(config)#ip routing
+Core-Router(config)#router ospf 50
+Core-Router(config-router)#network 172.16.13.0 0.0.0.31 area 0
+Core-Router(config-router)#network 172.16.13.32 0.0.0.31 area 0
+Core-Router(config-router)#exit
+
+
+//NAT配置
+Core-Router(config)#int range f0/0-1
+Core-Router(config-if-range)#ip nat inside
+Core-Router(config-if-range)#exit
+Core-Router(config)#int s0/0/0
+Core-Router(config-if)#ip nat outside	
+Core-Router(config-if)#exit
+Core-Router(config)#ip route 0.0.0.0 0.0.0.0 200.10.1.2
+Core-Router(config)#router ospf 50
+Core-Router(config-router)#def
+Core-Router(config-router)#default-information o
+Core-Router(config-router)#default-information originate 
+Core-Router(config-router)#exit
+Core-Router(config)#ip nat pool DZC 200.10.1.3 200.10.1.6 netmask 255.255.255.240
+Core-Router(config)#ac
+Core-Router(config)#access-list 1 pe
+Core-Router(config)#access-list 1 permit 172.16.0.0 0.0.15.255
+Core-Router(config)#ip nat inside sour
+Core-Router(config)#ip nat inside source list 1 po
+Core-Router(config)#ip nat inside source list 1 pool DZC
+
+//ACL配置
+Core-Router(config)#access-list 100 deny ip 100.10.1.0 0.0.0.15 172.16.15.0 0.0.0.127
+Core-Router(config)#ip nat
+Core-Router(config)#ip nat i
+Core-Router(config)#ip nat inside s
+Core-Router(config)#ip nat inside source list
+Core-Router(config)#ip nat inside source list 100 pool DZC
+Core-Router(config)#EXIT

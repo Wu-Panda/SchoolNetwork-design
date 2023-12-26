@@ -1,0 +1,40 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#vlan 40
+Switch(config-vlan)#vlan 50
+Switch(config-vlan)#vlan 60
+Switch(config-vlan)#vlan 70
+Switch(config-vlan)#vlan 80
+Switch(config-vlan)#vlan 90
+Switch(config-vlan)#vlan 100
+Switch(config-vlan)#exit
+
+Switch(config)#int range f 0/1-2
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport m
+Switch(config-if-range)#switchport mode ac
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport m
+Switch(config-if-range)#switchport mode tr
+Switch(config-if-range)#switchport mode trunk 
+Switch(config-if-range)#exit
+Switch(config)#int range f 0/3-5
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport m
+Switch(config-if-range)#switchport mode ac
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#sw
+Switch(config-if-range)#switchport ac
+Switch(config-if-range)#switchport access vlan 40
+Switch(config-if-range)#switchport access vlan 50
+Switch(config-if-range)#switchport access vlan 60
+Switch(config)#int f0/3
+Switch(config-if)#switchport access vlan 40
+Switch(config-if)#exit
+Switch(config)#int f0/4
+Switch(config-if)#switchport access vlan 50

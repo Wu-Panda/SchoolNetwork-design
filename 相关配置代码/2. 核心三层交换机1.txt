@@ -1,0 +1,203 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname Core-SW1
+Core-SW1(config)#vlan 10
+Core-SW1(config-vlan)#vlan 20
+Core-SW1(config-vlan)#vlan 30
+Core-SW1(config-vlan)#vlan 40
+Core-SW1(config-vlan)#vlan 50
+Core-SW1(config-vlan)#vlan 60
+Core-SW1(config-vlan)#vlan 70
+Core-SW1(config-vlan)#vlan 80
+Core-SW1(config-vlan)#vlan 90
+Core-SW1(config-vlan)#vlan 100
+Core-SW1(config-vlan)#exit
+Core-SW1(config)#int vlan 10
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan10, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.12.254 255.255.255.0
+Core-SW1(config-if)#standby 10 ip 172.16.12.252
+Core-SW1(config-if)#standby 10 priority 120
+Core-SW1(config-if)#
+Core-SW1(config-if)#standby 10 preempt
+Core-SW1(config-if)#standby 10 track f0/1
+Core-SW1(config-if)#standby 10 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 20
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan20, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.15.126 255.255.255.128
+Core-SW1(config-if)#standby 20 ip 172.16.15.124
+Core-SW1(config-if)#standby 20 priority 120
+Core-SW1(config-if)#standby 20 preempt
+Core-SW1(config-if)#standby 20 track f0/1
+Core-SW1(config-if)#standby 20 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 30
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan30, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.14.254 255.255.255.0
+Core-SW1(config-if)#standby 30 priority 120
+Core-SW1(config-if)#standby 30 preempt
+Core-SW1(config-if)#standby 30 track f0/1
+Core-SW1(config-if)#standby 30 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 30
+Core-SW1(config-if)#standby 30 ip 172.16.14.252
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 40
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan40, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.9.254 255.255.254.0
+Core-SW1(config-if)#standby 40 ip 172.16.9.252
+Core-SW1(config-if)#standby 40 track f0/1
+Core-SW1(config-if)#standby 40 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 50
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan50, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.10.254 255.255.255.0
+Core-SW1(config-if)#standby 50 ip 172.16.10.252
+Core-SW1(config-if)#standby 50 track f0/1
+Core-SW1(config-if)#standby 50 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 60
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan60, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.11.254 255.255.255.0
+Core-SW1(config-if)#standby 60 ip 172.16.11.252
+Core-SW1(config-if)#standby 60 track f0/1
+Core-SW1(config-if)#standby 60 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 70
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan70, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.3.254 255.255.252.0
+Core-SW1(config-if)#standby 70 ip 172.16.3.252
+Core-SW1(config-if)#standby 70 track f0/1
+Core-SW1(config-if)#standby 70 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 80
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan80, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.7.254 255.255.252.0
+Core-SW1(config-if)#standby 80 ip 172.16.7.252
+Core-SW1(config-if)#standby 80 track f0/1
+Core-SW1(config-if)#standby 80 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 90
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan90, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.15.254 255.255.255.128
+Core-SW1(config-if)#standby 90 ip 172.16.15.252
+Core-SW1(config-if)#standby 90 priority 120
+Core-SW1(config-if)#standby 90 preempt
+Core-SW1(config-if)#standby 90 track f0/1
+Core-SW1(config-if)#standby 90 track f0/2
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 100
+Core-SW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan100, changed state to up
+
+Core-SW1(config-if)#ip address 172.16.13.254 255.255.255.224
+Core-SW1(config-if)#standby 100 ip 172.16.13.252
+Core-SW1(config-if)#standby 100 track f0/1
+Core-SW1(config-if)#standby 100 track f0/2
+Core-SW1(config-if)#exit
+
+
+Core-SW1(config)#int f0/1
+Core-SW1(config-if)#no switchport
+Core-SW1(config-if)#ip address 172.16.13.98
+% Incomplete command.
+Core-SW1(config-if)#ip address 172.16.13.98 255.255.255.224
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+Core-SW1(config)#int f0/2
+Core-SW1(config-if)#no switchport
+Core-SW1(config-if)#ip address 172.16.13.162 255.255.255.224
+Core-SW1(config-if)#no shutdown
+Core-SW1(config-if)#exit
+
+
+Core-SW1(config)#ip routing
+Core-SW1(config)#int port-channel 1
+Core-SW1(config-if)#switchport trunk encapsulation dot1q
+Core-SW1(config-if)#sw
+Core-SW1(config-if)#switchport m
+Core-SW1(config-if)#switchport mode tr
+Core-SW1(config-if)#switchport mode trunk 
+Core-SW1(config-if)#exit
+Core-SW1(config)#int range f 0/3-4
+Core-SW1(config-if-range)#sw
+Core-SW1(config-if-range)#switchport tr
+Core-SW1(config-if-range)#switchport trunk e
+Core-SW1(config-if-range)#switchport trunk encapsulation d
+Core-SW1(config-if-range)#switchport trunk encapsulation dot1q 
+Core-SW1(config-if-range)#sw
+Core-SW1(config-if-range)#switchport m
+Core-SW1(config-if-range)#switchport mode tr
+Core-SW1(config-if-range)#switchport mode trunk 
+Core-SW1(config-if-range)#channel-group 1 mode on
+Core-SW1(config-if-range)#exit
+
+Core-SW1(config)#spa
+Core-SW1(config)#spanning-tree m
+Core-SW1(config)#spanning-tree mode p
+Core-SW1(config)#spanning-tree mode pvst 
+Core-SW1(config)#span
+Core-SW1(config)#spanning-tree vlan 10,20,30,90 root primary
+Core-SW1(config)#spa
+Core-SW1(config)#spanning-tree vlan 40,50,60,70,80,100 root secondary
+
+Core-SW1(config)#int range f 0/5-11
+Core-SW1(config-if-range)#sw
+Core-SW1(config-if-range)#switchport tr
+Core-SW1(config-if-range)#switchport trunk e
+Core-SW1(config-if-range)#switchport trunk encapsulation d
+Core-SW1(config-if-range)#switchport trunk encapsulation dot1q 
+Core-SW1(config-if-range)#sw
+Core-SW1(config-if-range)#switchport m
+Core-SW1(config-if-range)#switchport mode tr
+Core-SW1(config-if-range)#switchport mode trunk 
+
+
+Core-SW1(config)#int f0/11
+Core-SW1(config-if)#sw
+Core-SW1(config-if)#switchport md
+Core-SW1(config-if)#switchport m
+Core-SW1(config-if)#switchport mode tr
+Core-SW1(config-if)#switchport mode trunk 
+Core-SW1(config-if)#sw
+Core-SW1(config-if)#switchport m
+Core-SW1(config-if)#switchport mode ac
+Core-SW1(config-if)#switchport mode access 
+Core-SW1(config-if)#sw
+Core-SW1(config-if)#switchport ac
+Core-SW1(config-if)#switchport access vlan 100
+Core-SW1(config-if)#exit
+
+//ACL配置
+Core-SW1(config)#ac
+Core-SW1(config)#access-list 100 deny ip 172.16.0.0 0.0.7.255 172.16.12.0 0.0.0.255
+Core-SW1(config)#access-list 100 deny ip 172.16.0.0 0.0.7.255 172.16.15.0 0.0.0.127
+Core-SW1(config)#access-list 100 permit ip any any
+Core-SW1(config)#int vlan 70
+Core-SW1(config-if)#ip 
+Core-SW1(config-if)#ip ac
+Core-SW1(config-if)#ip access-group 100 in
+Core-SW1(config-if)#exit
+Core-SW1(config)#int vlan 80
+Core-SW1(config-if)#ip ac
+Core-SW1(config-if)#ip access-group 100 in
+Core-SW1(config-if)#exit

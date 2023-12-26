@@ -1,0 +1,47 @@
+Router#conf t
+Router(config)#ip dhcp pool joysin.net
+Router(dhcp-config)#network 172.16.12.0 255.255.255.0
+Router(dhcp-config)#def
+Router(dhcp-config)#default-router 172.16.12.1	
+Router(dhcp-config)#option 150 ip 172.16.12.1
+Router(dhcp-config)#int f0/0
+Router(config-if)#ip address 172.16.12.1 255.255.255.0
+Router(config-if)#du
+Router(config-if)#duplex a
+Router(config-if)#duplex auto 
+Router(config-if)#sp
+Router(config-if)#speed a
+Router(config-if)#speed auto 
+Router(config-if)#exit
+Router(config)#int f0/1
+Router(config-if)#no ip add
+Router(config-if)#no ip address 
+Router(config-if)#d
+Router(config-if)#du
+Router(config-if)#duplex au
+Router(config-if)#duplex auto 
+Router(config-if)#sp
+Router(config-if)#speed au
+Router(config-if)#speed auto 
+Router(config-if)#shu
+Router(config-if)#shutdown 
+Router(config-if)#exit
+
+Router(config)#int vlan 1
+Router(config-if)#no ip ad
+Router(config-if)#no ip address 
+Router(config-if)#shutdown
+Router(config-if)#tele
+Router(config-if)#telephony-service
+Router(config-telephony)#max
+Router(config-telephony)#max-ephones 5
+Router(config-telephony)#max-dn 5
+Router(config-telephony)#ip sou
+Router(config-telephony)#ip source-address 172.16.12.1 port 2000
+Router(config-telephony)#auto assign 1 to 5
+Router(config-telephony)#exit
+Router(config)#ephone-dn 1
+Router(config-ephone-dn)#number 111
+Router(config-ephone-dn)#exit
+Router(config)#ephone-dn 2
+Router(config-ephone-dn)#number 222

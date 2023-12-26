@@ -1,0 +1,28 @@
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname Core-Router2
+
+Core-Router2(config)#int f1/0
+Core-Router2(config-if)#ip address 172.16.13.193 255.255.255.224
+Core-Router2(config-if)#no shutdown
+Core-Router2(config-if)#exit
+Core-Router2(config)#int f1/1
+Core-Router2(config-if)#ip address 172.16.13.161 255.255.255.224
+Core-Router2(config-if)#no shutdown
+Core-Router2(config-if)#exit
+Core-Router2(config)#int f0/1
+Core-Router2(config-if)#ip address 172.16.13.66 255.255.255.224
+Core-Router2(config-if)#no shutdown
+Core-Router2(config-if)#exit
+Core-Router2(config)#int f0/0
+Core-Router2(config-if)#ip address 172.16.13.34 255.255.255.224
+Core-Router2(config-if)#no shutdown
+Core-Router2(config-if)#exit
+
+Core-Router2(config)#ip routing
+Core-Router2(config)#router ospf 40
+Core-Router2(config-router)#network 172.16.13.32 0.0.0.31 area 0
+Core-Router2(config-router)#network 172.16.13.64 0.0.0.31 area 0
+Core-Router2(config-router)#network 172.16.13.160 0.0.0.31 area 0
+Core-Router2(config-router)#network 172.16.13.192 0.0.0.31 area 0

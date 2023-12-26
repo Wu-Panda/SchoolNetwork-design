@@ -1,0 +1,36 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname ny
+ny(config)#vlan 10
+ny(config-vlan)#vlan 20
+ny(config-vlan)#vlan 30
+ny(config-vlan)#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (1), with Switch FastEthernet0/3 (70).
+vlan 40
+ny(config-vlan)#vlan 50
+ny(config-vlan)#vlan 60
+ny(config-vlan)#vlan 70
+ny(config-vlan)#vlan 80
+ny(config-vlan)#vlan 90
+ny(config-vlan)#vlan 100
+ny(config-vlan)#exit
+ny(config)#int f0/1
+ny(config-if)#sw
+ny(config-if)#switchport mo
+ny(config-if)#switchport mode a
+ny(config-if)#switchport mode access 
+ny(config-if)#sw
+ny(config-if)#switchport m
+ny(config-if)#switchport mode tr
+ny(config-if)#switchport mode trunk 
+
+ny(config-if)#exit
+ny(config)#int rang f 0/2-3
+ny(config-if-range)#sw
+ny(config-if-range)#switchport m
+ny(config-if-range)#switchport mode ac
+ny(config-if-range)#switchport mode access 
+ny(config-if-range)#sw
+ny(config-if-range)#switchport ac
+ny(config-if-range)#switchport access vlan 70
